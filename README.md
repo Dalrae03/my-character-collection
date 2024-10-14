@@ -17,7 +17,8 @@
 <br>
 
 ## ERD
-![Mini Project Test](https://github.com/user-attachments/assets/8001e8be-c81d-431c-a1a3-673417962de6)
+![Mini Project Test](https://github.com/user-attachments/assets/cf9421a0-1de6-430d-babc-023d80084388)
+
 
 
 <br>
