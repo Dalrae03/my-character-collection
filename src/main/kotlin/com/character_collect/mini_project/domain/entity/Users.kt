@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 
 @Entity
-class User(
+class Users(
     name: String,
     email: String,
     password: String,
@@ -34,7 +34,8 @@ class User(
         cascade = [CascadeType.ALL]  //all로 인해서 experience가 영속성에 들어가면서 얘가 가지고있는 디테일들도 같이 들어감. 같이 인서트 쿼리가 남
     )  //영속성 콘텍스트와 관련있다. 이 엔티티에서 영속성 콘텍스트에 들어가거나 빠지거나 변화가 있었을 때 그 자식엔티티도 같이 넣어주냐 빼주냐 정하는 옵션 (ALL은 모든 변화에다가 자식엔티티도 똑같이 적용한다고 하는 것)
     @JoinColumn(name = "user_id")  //맵핑의 기준이 뭔지, 그 맵핑의 기준이 되는 컬럼을 알려주는 기능을 함
-    val characters: List<Character> = mutableListOf()  //var은 변경가능 변수, val은 변수 참조 자체를 변경할 수 없다는데... 솔직히 잘 몰겠다...
+    var characters: MutableList<Character> = mutableListOf()  //var은 변경가능 변수, val은 변수 참조 자체를 변경할 수 없다는데... 솔직히 잘 몰겠다...
+    //사용자가 소유한 캐릭터 목록들
 
 
     fun update(
@@ -47,6 +48,12 @@ class User(
         this.email = email
         this.password = password
         this.nickname = nickname
+    }
+
+    fun addCharacter(characters: MutableList<Character>?) {
+        if (characters != null) {
+            this.characters.addAll(characters)
+        }
     }
 
 
