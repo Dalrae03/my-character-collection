@@ -62,5 +62,4 @@ class Character(
         this.characterSetting = characterSetting
     }
 
-
 }
